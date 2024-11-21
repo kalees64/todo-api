@@ -13,7 +13,24 @@ const app = express();
 dotenv.config();
 db_connect();
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:4200",
+  "http://localhost:3000",
+  "https://angular-practice-omega.vercel.app",
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  optionsSuccessStatus: 200,
+};
+
+app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

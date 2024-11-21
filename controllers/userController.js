@@ -28,6 +28,10 @@ const addUser = async (req, res) => {
     password,
   };
   try {
+    const oldUser = await USER.findOne({ email });
+    if (oldUser) {
+      return res.json({ message: "User already exists" });
+    }
     const addNewUser = await USER.insertMany([newUser]);
     const findUser = await USER.findOne({ _id: addNewUser[0]._id }).select(
       "-__v"
