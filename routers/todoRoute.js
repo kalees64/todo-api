@@ -3,13 +3,13 @@ const todoController = require("../controllers/todoController");
 
 const router = express.Router();
 
-router.get("/todos", todoController.getAllTodos);
-router.get("/todos/:id", todoController.getTodoById);
+router.get("/tasks", todoController.getAllTodos);
+router.get("/tasks/:id", todoController.getTodoById);
 
-router.post("/todos", todoController.addTodo);
+router.post("/tasks", todoController.addTodo);
 
-router.patch("/todos/:id", todoController.updateTodo);
+router.patch("/tasks/:id", todoController.updateTodo);
 
-router.delete("/todos/:id", todoController.deleteTodoById);
+router.delete("/tasks/:id", todoController.deleteTodoById);
 
 module.exports = router;

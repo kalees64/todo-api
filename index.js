@@ -18,6 +18,7 @@ const allowedOrigins = [
   "http://localhost:3000",
   "https://angular-practice-omega.vercel.app",
   "https://todo-app-ashy-phi.vercel.app",
+  "https://task-app-three-lyart.vercel.app",
 ];
 
 const corsOptions = {
